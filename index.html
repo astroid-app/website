@@ -2,288 +2,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-
-      body {
-        background-color: #151720;
-        color: white;
-        min-height: 100vh;
-        font-family: "Inter", sans-serif;
-        overflow-x: hidden;
-        width: 100%;
-        margin: 0;
-        top: 0;
-        left: 0;
-      }
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: top;
-        height: 70px;
-        margin: 10px;
-        width: 100vw;
-      }
-      header .logo {
-        position: relative;
-        margin-top: 0;
-        width: min(300px, 90%);
-      }
-
-      header .logo img {
-        width: 100%;
-        height: min-content;
-        object-fit: cover;
-        height: min(70px, 100%);
-      }
-      nav {
-        display: flex;
-        align-items: center;
-        margin-right: 1.5rem;
-      }
-      nav a {
-        margin-left: 1.5rem;
-        color: white;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-      nav a:hover {
-        color: #a1a1aa;
-      }
-      main {
-        text-align: center;
-        padding: 5rem 0;
-      }
-      .new-feature {
-        background-color: #1d202b;
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        border-radius: 9999px;
-        font-size: 0.875rem;
-        margin-bottom: 1rem;
-      }
-      h1 {
-        font-size: 2.25rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-      }
-      @media (min-width: 768px) {
-        h1 {
-          font-size: 3rem;
-        }
-      }
-      p {
-        color: #a1a1aa;
-        max-width: 32rem;
-        margin: 0 auto 2rem auto;
-      }
-      .button-group button {
-        background-color: #2563eb;
-        color: white;
-        padding: 20px 40px;
-        border-radius: 10px;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s;
-      }
-      .button-group button:hover {
-        background-color: #3d60ff;
-      }
-      .button-group button:nth-child(2) {
-        background-color: #3f3f46;
-      }
-      .button-group button:nth-child(2):hover {
-        background-color: #52525b;
-      }
-      section {
-        background-color: #1d202b;
-        padding: 1.5rem;
-        border-radius: 0.5rem;
-        margin: 1rem;
-        max-width: 72rem;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      section .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1rem;
-      }
-      section .header .title {
-        font-size: 1.25rem;
-        font-weight: bold;
-      }
-      section .header button {
-        background-color: #3d60ff;
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 0.375rem;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-      section .header button:hover {
-        background-color: #1d4ed8;
-      }
-      .grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      @media (min-width: 768px) {
-        .grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      @media (min-width: 1024px) {
-        .grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
-      .channel {
-        background-color: #3f3f46;
-        padding: 1rem;
-        border-radius: 0.375rem;
-      }
-      .channel .title {
-        font-size: 1.125rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-      }
-      .channel button {
-        background-color: #2563eb;
-        color: white;
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.375rem;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-      .channel button:hover {
-        background-color: #1d4ed8;
-      }
-
-      .tutorials {
-        background-color: #1d202b;
-        padding: 1.5rem;
-        border-radius: 0.5rem;
-        margin: 1rem;
-        max-width: 72rem;
-        margin-left: auto;
-        margin-right: auto;
-        height: max-content;
-      }
-      .dc-tut-1-img {
-        width: 100%;
-        height: auto;
-        border-radius: 20px;
-        float: left;
-      }
-      .dc-tut-2-img {
-        width: 60%;
-        height: auto;
-        border-radius: 20px;
-        float: right;
-      }
-      .dc-tut-3-img {
-        width: 60%;
-        height: auto;
-        border-radius: 20px;
-        float: left;
-      }
-      .dc-tut-4-img {
-        width: 100%;
-        height: auto;
-        border-radius: 20px;
-        float: right;
-      }
-      .dc-tut-5-img {
-        width: 60%;
-        height: auto;
-        border-radius: 20px;
-        float: left;
-      }
-
-      .dc-tut-1 {
-        margin-bottom: 60px;
-        width: 100%;
-        position: relative;
-        height: auto;
-      }
-      .dc-tut-2 {
-        margin-bottom: 60px;
-        width: 100%;
-        position: relative;
-        height: auto;
-      }
-      .dc-tut-3 {
-        margin-bottom: 60px;
-        width: 100%;
-        position: relative;
-        height: auto;
-      }
-      .dc-tut-4 {
-        margin-bottom: 60px;
-        width: 100%;
-        position: relative;
-        height: auto;
-      }
-      .dc-tut-5 {
-        margin-bottom: 60px;
-        width: 100%;
-        position: relative;
-        height: auto;
-      }
-
-      .dc-tut-1 p {
-        color: #a1a1aa;
-        font-size: 1.25rem;
-        margin-top: 20px;
-        float: left;
-      }
-      .dc-tut-2 p {
-        color: #a1a1aa;
-        font-size: 1.25rem;
-        margin-top: 20px;
-        float: right;
-      }
-      .dc-tut-3 p {
-        color: #a1a1aa;
-        font-size: 1.25rem;
-        margin-top: 20px;
-        float: left;
-      }
-      .dc-tut-4 p {
-        color: #a1a1aa;
-        font-size: 1.25rem;
-        margin-top: 20px;
-        float: right;
-      }
-      .dc-tut-5 p {
-        color: #a1a1aa;
-        font-size: 1.25rem;
-        margin-top: 20px;
-        float: left;
-      }
-      .tutorial-section {
-        margin-bottom: 60px;
-        height: max-content;
-      }
-
-      .clearfix::after {
-        content: "";
-        display: table;
-        clear: both;
-      }
-    </style>
+    <title>💖 Astroid</title>
+    <link rel="shortcut icon" href="./assets/Astroid Logo no bg.png" type="image/x-icon">
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <meta content="💖 Astroid" property="og:title" />
+    <meta content="https://astroid.cc/" property="og:url" />
+    <meta content="https://astroid.cc/assets/Astroid Logo.png" property="og:image" style="border-radius: 20px;"/>
+    <meta content="#1D202B" data-react-helmet="true" name="theme-color" />
   </head>
   <body>
-    <div>
+    <div class="norm">
       <header>
         <div class="logo">
-          <img src="https://api.astroid.cc/assets/Astroid-banner.png" alt="" />
+          <img src="./assets/Astroid-banner.png" alt="" />
         </div>
         <nav>
           <a href="#">About Us</a>
@@ -291,6 +23,7 @@
           <a href="#">Contact</a>
           <a href="./terms.html">Terms</a>
           <a href="./privacy.html">Privacy</a>
+          <a href="./imprint.html">Imprint</a>
         </nav>
       </header>
       <main>
@@ -303,13 +36,13 @@
           broader audience, accelerating online community development.
         </p>
         <div class="button-group">
-          <button>Get Astroid</button>
-          <button>View on Github</button>
+          <button id="get-astroid">Get Astroid</button>
+          <button id="github">View on Github</button>
         </div>
       </main>
       <section>
         <div class="header">
-          <div class="title">Dashboard (commong soon)</div>
+          <div class="title">Dashboard (comming soon)</div>
           <button>Add Channel</button>
         </div>
         <div class="grid">
@@ -333,26 +66,34 @@
             <div class="title">Easily control everthing on you Servers</div>
           </div>
           <div class="dc-tut-1 clearfix">
-            <img src="./tutorials/dc-tut-1.png" alt="" class="dc-tut-1-img" />
-            <p>Easily register your Server via Discord</p>
+            <img src="./tutorials/dc-tut-1.png" alt="" id="can-resize" class="dc-tut-1-img" />
           </div>
           <div class="dc-tut-2 clearfix">
-            <img src="./tutorials/dc-tut-2.png" alt="" class="dc-tut-2-img" />
+            <img src="./tutorials/dc-tut-2.png" alt="" id="can-resize" class="dc-tut-2-img" />
+            <p>Easily register your Server via Discord</p>
           </div>
+          <hr>
           <div class="dc-tut-3 clearfix">
-            <img src="./tutorials/dc-tut-3.png" alt="" class="dc-tut-3-img" />
+            <img src="./tutorials/dc-tut-3.png" alt="" id="can-resize" class="dc-tut-3-img" />
             <p>Add every channel you want to connect to all other platforms</p>
           </div>
+          <hr>
           <div class="dc-tut-4 clearfix">
-            <img src="./tutorials/dc-tut-4.png" alt="" class="dc-tut-4-img" />
+            <img src="./tutorials/dc-tut-4.png" alt="" id="can-resize" class="dc-tut-4-img" />
             <p>Edit every config value of your endpoint with commands</p>
           </div>
+          <hr>
           <div class="dc-tut-5 clearfix">
-            <img src="./tutorials/dc-tut-5.png" alt="" class="dc-tut-5-img" />
-            <p>Delete everything, anytime</p>
+            <img src="./tutorials/dc-tut-5.png" alt="" id="can-resize" class="dc-tut-5-img" />
+            <p>Delete your endpoint at anytime</p>
           </div>
         </div>
       </section>
+    </div>
+    <div class="full_img_div">
+      <div class="close">
+        <img src="./assets/x-symbol-svgrepo-com.svg" alt="" srcset="">
+      </div>
     </div>
   </body>
 </html>

@@ -347,7 +347,7 @@ section .header button:hover {
     float: right;
   }
   .dc-tut-3-img {
-    width: 60%;
+    width: 100%;
     height: auto;
     border-radius: 10px;
     float: left;
@@ -359,7 +359,7 @@ section .header button:hover {
     float: right;
   }
   .dc-tut-5-img {
-    width: 60%;
+    width: 90%;
     height: auto;
     border-radius: 10px;
     float: left;

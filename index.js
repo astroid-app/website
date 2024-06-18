@@ -43,4 +43,7 @@ document.querySelectorAll("#can-resize").forEach(img => {
     document.querySelector("#github").onclick = function() {
         window.open("https://github.com/astroid-app");
     }
+    document.querySelector("#get-astroid").onclick = function() {
+        window.open("./invite");
+    }
 }

@@ -10,6 +10,7 @@ body {
   margin: 0;
   top: 0;
   left: 0;
+  z-index: 0;
 }
 header {
   display: flex;
@@ -77,6 +78,17 @@ p {
   max-width: 32rem;
   margin: 0 auto 2rem auto;
 }
+
+.button-group {
+  justify-content: center;
+  justify-self: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .button-group button {
   background-color: #2563eb;
   color: white;
@@ -86,6 +98,8 @@ p {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;
+  margin-bottom: 10px;
+  margin-left: 5px;
 }
 .button-group button:hover {
   background-color: #3d60ff;
@@ -96,6 +110,13 @@ p {
 .button-group button:nth-child(2):hover {
   background-color: #52525b;
 }
+.button-group button:nth-child(3) {
+  background-color: #5865F2;
+}
+.button-group button:nth-child(3) {
+  position: relative;
+}
+
 section {
   background-color: #1d202b;
   padding: 1.5rem;
@@ -367,59 +388,59 @@ section .header button:hover {
   }
 }
 hr {
-    margin-bottom: 30px;
-  }
+  margin-bottom: 30px;
+}
 
 .full_img_div {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    border-radius: 20px;
-    display: none;
-    z-index: 2;
-    align-items: center;
-    text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 20px;
+  display: none;
+  z-index: 2;
+  align-items: center;
+  text-align: center;
 }
 
 .full_img_div img {
-    width: 98%;
-    height: auto;
-    border-radius: 20px;
-    margin: 0 auto;
-    display: block;
-    border-radius: 0;
-    animation: fadeIn 0.2s ease-in-out;
+  width: 98%;
+  height: auto;
+  border-radius: 20px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 0;
+  animation: fadeIn 0.2s ease-in-out;
 }
 .close {
-    position: absolute;
-    top: 40px;
-    right: 40px;
-    font-size: 30px;
-    color: white;;
-    cursor: pointer;
-    width: min(50px, 5%);
-    filter: invert() opacity(0.5);
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  width: min(50px, 5%);
+  filter: invert() opacity(0.5);
 }
 #no-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
 @keyframes darken {
-    from {
-      background-color: rgba(0, 0, 0, 0);
-    }
-    to {
-      background-color: rgba(0, 0, 0, 0.5);
-    }
+  from {
+    background-color: rgba(0, 0, 0, 0);
   }
+  to {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}

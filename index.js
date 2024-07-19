@@ -46,4 +46,7 @@ document.querySelectorAll("#can-resize").forEach(img => {
     document.querySelector("#get-astroid").onclick = function() {
         window.open("./invite");
     }
+    document.querySelector("#discord").onclick = function() {
+        window.open("https://api.astroid.cc/discord");
+    }
 }

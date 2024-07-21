@@ -17,9 +17,27 @@ window.onload = async function() {
         document.querySelector(".logo img").src = "../assets/Astroid-banner.png";
     }
 
-    if (token == null || endpoint_id == null) {
+    if (token == null || endpoint_id == null) {    
         document.getElementById("login-popup").style.display = "block"
     }
+
+    try {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const endpoint_id = urlParams.get('endpoint')
+        const token = urlParams.get('token')
+        localStorage.setItem("token", token)
+        localStorage.setItem("endpoint_id", endpoint_id)
+        if (endpoint_id == null || token == null) {
+            throw new Error("No token or endpoint_id provided")
+        }
+        window.location.href = "./dashboard.html"
+    } catch (error) {
+        console.error(error);
+    }
+    
+
+
 
     document.getElementById("login").onclick = async function() {
         document.querySelector(".error-div").style.display = "none"

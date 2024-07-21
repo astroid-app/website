@@ -1,7 +1,3 @@
-* {
-overflow-y: scroll;
-}
-
 body {
   top: 0;
   left: 0;
@@ -31,7 +27,7 @@ body {
 }
 
 .login-popup {
-  position: fixed;
+  position: absolute;
   font-family: "Inter", sans-serif;
   color: #fff;
   top: 0;
@@ -45,6 +41,8 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  overflow-y: scroll;
+  height: max-content;
 }
 
 .login-center {
@@ -55,6 +53,8 @@ body {
   margin-top: 0;
   height: max-content;
   width: min(90%, 500px);
+  overflow-y: scroll;
+  margin-bottom: 30px;
 }
 
 .endpoint-id-input {
@@ -92,6 +92,7 @@ body {
   font-family: "Inter", sans-serif;
   padding: 1rem;
   margin: 0 auto;
+  overflow-y: scroll;
 }
 
 .header {
@@ -442,6 +443,7 @@ a {
   position: relative;
   margin: 0 auto;
   transform: translateY(calc(50vh - 50%));
+  overflow: hidden;
 }
 
 .loader:before, .loader:after {
@@ -473,6 +475,7 @@ a {
   perspective: 600px;
   box-shadow: 0 4px 6px var(--shadow);
   background-image: var(--background);
+  overflow: hidden;
 }
 
 .loader div ul {

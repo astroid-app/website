@@ -1,6 +1,42 @@
 const token = localStorage.getItem("token")
 const endpoint_id = localStorage.getItem("endpoint_id")
 
+async function login() {
+    document.querySelector(".error-div").style.display = "none"
+    document.getElementById("span-login").style.display = "none"
+    document.getElementById("btn-load").style.display = "flex"
+    const endpoint_id = document.getElementById("endpoint-id").value
+    const token = document.getElementById("token").value
+    const apiUrl = `https://astroid.deutscher775.de/${endpoint_id}?token=${token}`;
+
+    await fetch(apiUrl).then(async response => {
+        if (response.status == 200) {
+            var data = await response.json()
+            console.log(data)
+            console.log(data.config.isbeta)
+            if (data.config.isbeta != true) {
+                document.querySelector(".error-div").style.display = "block"
+                document.getElementById("error").innerText = "Only beta endpoints are supported at the moment"
+            } else {
+                localStorage.setItem("token", token)
+                localStorage.setItem("endpoint_id", endpoint_id)
+                location.reload()
+        }
+        } else if (response.status == 404) {
+            document.querySelector(".error-div").style.display = "block"
+            document.getElementById("error").innerText = "This endpoint does not exist"
+        } else if (response.status == 401) {
+            document.querySelector(".error-div").style.display = "block"
+            document.getElementById("error").innerText = "You are not authorized to access this endpoint"
+        } else {
+            document.querySelector(".error-div").style.display = "block"
+            document.getElementById("error").innerText = "An unexpected error occurred"
+        }
+    }
+)
+    document.getElementById("span-login").style.display = "block"
+    document.getElementById("btn-load").style.display = "none"
+}
 
 window.onresize = function() {
     if (window.innerWidth <= 550) {
@@ -17,63 +53,36 @@ window.onload = async function() {
         document.querySelector(".logo img").src = "../assets/Astroid-banner.png";
     }
 
-    if (token == null || endpoint_id == null) {    
-        document.getElementById("login-popup").style.display = "block"
-    }
-
     try {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const endpoint_id = urlParams.get('endpoint')
-        const token = urlParams.get('token')
-        localStorage.setItem("token", token)
-        localStorage.setItem("endpoint_id", endpoint_id)
-        if (endpoint_id == null || token == null) {
-            throw new Error("No token or endpoint_id provided")
+        if (localStorage.getItem("token") == null || localStorage.getItem("endpoint_id") == null || localStorage.getItem("token") == "null" || localStorage.getItem("endpoint_id") == "null") {
+            document.getElementById("login-popup").style.display = "block"
+            const urlParams = new URLSearchParams(window.location.search)
+            const endpoint_id = urlParams.get('endpoint')
+            const token = urlParams.get('token')
+            if (endpoint_id == null || token == null) {
+            } else {
+            console.log(endpoint_id)
+            console.log(token)
+            document.getElementById("endpoint-id").value = endpoint_id
+            document.getElementById("token").value = token
+            await login()
+            window.location.search = ""
         }
-        window.location.href = "./dashboard.html"
+        }
+        else {
+            document.getElementById("login-popup").style.display = "none"
+        }
     } catch (error) {
         console.error(error);
     }
+
+    if (token == null || endpoint_id == null || token == "null" || endpoint_id == "null") {    
+        document.getElementById("login-popup").style.display = "block"
+    }
     
 
-
-
     document.getElementById("login").onclick = async function() {
-        document.querySelector(".error-div").style.display = "none"
-        document.getElementById("span-login").style.display = "none"
-        document.getElementById("btn-load").style.display = "flex"
-        const endpoint_id = document.getElementById("endpoint-id").value
-        const token = document.getElementById("token").value
-        const apiUrl = `https://astroid.deutscher775.de/${endpoint_id}?token=${token}`;
-
-        await fetch(apiUrl).then(async response => {
-            if (response.status == 200) {
-                var data = await response.json()
-                console.log(data)
-                console.log(data.config.isbeta)
-                if (data.config.isbeta != true) {
-                    document.querySelector(".error-div").style.display = "block"
-                    document.getElementById("error").innerText = "Only beta endpoints are supported at the moment"
-                } else {
-                    localStorage.setItem("token", token)
-                    localStorage.setItem("endpoint_id", endpoint_id)
-                    location.reload()
-            }
-            } else if (response.status == 404) {
-                document.querySelector(".error-div").style.display = "block"
-                document.getElementById("error").innerText = "This endpoint does not exist"
-            } else if (response.status == 401) {
-                document.querySelector(".error-div").style.display = "block"
-                document.getElementById("error").innerText = "You are not authorized to access this endpoint"
-            } else {
-                document.querySelector(".error-div").style.display = "block"
-                document.getElementById("error").innerText = "An unexpected error occurred"
-            }
-        }
-    )
-        document.getElementById("span-login").style.display = "block"
-        document.getElementById("btn-load").style.display = "none"
+        await login()
     }
 
     document.getElementById("logout").onclick = function() {    
@@ -188,7 +197,9 @@ window.onload = async function() {
         }
     
     }
+    
     )
+
     document.querySelectorAll(".edit-channel").forEach(btn => {
         btn.onclick = function() {
             openEditModal(btn)

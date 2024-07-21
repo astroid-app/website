@@ -1,3 +1,7 @@
+* {
+overflow-y: scroll;
+}
+
 body {
   top: 0;
   left: 0;

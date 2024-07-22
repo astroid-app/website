@@ -199,10 +199,16 @@ window.onload = async function() {
             channel_div.appendChild(edit_channel_btn)
             channels.appendChild(channel_div)
         }
-    
+        var logs = JSON.parse(localStorage.getItem("config")).logs
+        console.log(logs)
+        document.querySelector(".log-channels #log-discord").value = logs.discord || "Not set"
+        document.querySelector(".log-channels #log-guilded").value = logs.guilded || "Not set"
+        document.querySelector(".log-channels #log-revolt").value = logs.revolt || "Not set"
+        document.querySelector(".log-channels #log-nerimity").value = logs.nerimity || "Not set"
     }
     
     )
+
 
     document.querySelectorAll(".edit-channel").forEach(btn => {
         btn.onclick = function() {
@@ -476,6 +482,27 @@ async function save(btn) {
         // if (nerimity_webhook != "No webhook" && nerimity_webhook != undefined && nerimity_webhook != "" && nerimity_webhook != null && nerimity_webhook != "undefined") {
         //     updateUrl += `&webhook_nerimity=${nerimity_webhook}`
         // }
+
+        await fetch(updateUrl, {method: "POST"})
+        location.reload()
+    } else if (save == "log") {
+        var discord_channel = document.querySelector(".log-channels #log-discord").value
+        var guilded_channel = document.querySelector(".log-channels #log-guilded").value
+        var revolt_channel = document.querySelector(".log-channels #log-revolt").value
+        var nerimity_channel = document.querySelector(".log-channels #log-nerimity").value
+
+        if (discord_channel != "Not set" && discord_channel != undefined && discord_channel != "" && discord_channel != null && discord_channel != "undefined") {
+            updateUrl += `&log_discord=${discord_channel}`
+        }
+        if (guilded_channel != "Not set" && guilded_channel != undefined && guilded_channel != "" && guilded_channel != null && guilded_channel != "undefined") {
+            updateUrl += `&log_guilded=${guilded_channel}`
+        }
+        if (revolt_channel != "Not set" && revolt_channel != undefined && revolt_channel != "" && revolt_channel != null && revolt_channel != "undefined") {
+            updateUrl += `&log_revolt=${revolt_channel}`
+        }
+        if (nerimity_channel != "Not set" && nerimity_channel != undefined && nerimity_channel != "" && nerimity_channel != null && nerimity_channel != "undefined") {
+            updateUrl += `&log_nerimity=${nerimity_channel}`
+        }
 
         await fetch(updateUrl, {method: "POST"})
         location.reload()

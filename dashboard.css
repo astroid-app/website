@@ -1,3 +1,5 @@
+
+
 body {
   top: 0;
   left: 0;
@@ -97,6 +99,8 @@ body {
   padding: 1rem;
   margin: 0 auto;
   overflow-y: scroll;
+  overflow-x: hidden;
+  width: 90%;
 }
 
 .header {
@@ -213,7 +217,10 @@ body {
 }
 
 hr {
-  width: 100vw;
+  width: 100%;
+  justify-self: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .channel-name {
@@ -355,6 +362,50 @@ input:focus {
       
 }
 
+.log-channels {
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 0 auto;
+  width: 90vw;
+  background-color: #1d202b;
+  padding: 2px;
+  border-radius: 30px;
+  width: 300px;
+  margin-left: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.log-channels h1 {
+  float: left;
+  margin-right: 100px;
+  margin-left: 10px;
+}
+
+.log-channels input {
+  width: 90%;
+  background-color: #323749;
+  border-radius: 10px;
+}
+
+.log-channels button {
+  position: relative;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.log-channels p {
+  margin: 0;
+  float: left;
+  margin-left: 10px;
+
+}
+
 .filter {
   top: 0;
   left: 0;
@@ -377,7 +428,7 @@ header {
   align-items: top;
   height: 70px;
   margin: 10px;
-  width: 100vw;
+  width: 100%;
   margin-top: 0;
 }
 

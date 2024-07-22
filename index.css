@@ -163,6 +163,11 @@ section .header button:hover {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.logo img:hover {
+  cursor: pointer;
+}
+
 .channel {
   background-color: #3f3f46;
   padding: 1rem;

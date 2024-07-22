@@ -13,6 +13,10 @@ window.onload = function() {
         document.querySelector(".logo img").src = "../assets/Astroid-banner.png";
     }
 
+    document.querySelector(".logo img").onclick = function() { 
+        window.location.href = "/";
+    }
+
 document.querySelectorAll("#can-resize").forEach(img => {
     img.onclick = function() {
         const div = document.querySelector(".full_img_div");

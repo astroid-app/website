@@ -53,6 +53,10 @@ window.onload = async function() {
         document.querySelector(".logo img").src = "../assets/Astroid-banner.png";
     }
 
+    document.querySelector(".logo img").onclick = function() {
+        window.location.href = "/";
+    }
+
     try {
         if (localStorage.getItem("token") == null || localStorage.getItem("endpoint_id") == null || localStorage.getItem("token") == "null" || localStorage.getItem("endpoint_id") == "null") {
             document.getElementById("login-popup").style.display = "block"

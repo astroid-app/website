@@ -10,6 +10,10 @@ body {
 }
 
 
+.logo img:hover {
+  cursor: pointer;
+}
+
 .loading {
   position: fixed;
   font-family: "Inter", sans-serif;

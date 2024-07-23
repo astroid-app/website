@@ -56,16 +56,35 @@
       </div>
       <div class="log-channels" id="log-channels">
         <h1>Logs</h1>
-        <p class="log-discord">Discord Channels</p>
-        <input id="log-discord">
-        <p class="log-guilded">Guilded Channels</p>
-        <input id="log-guilded">
-        <p class="log-revolt">Revolt Channels</p>
-        <input id="log-revolt">
-        <p class="log-nerimity">Nerimity Channels</p>
-        <input id="log-nerimity">
-        <button class="save" id="save">Save</button>
+        <p class="log-discord">Discord Channel</p>
+        <input id="log-discord"></input>
+        <p class="log-guilded">Guilded Channel</p>
+        <input id="log-guilded"></input>
+        <p class="log-revolt">Revolt Channel</p>
+        <input id="log-revolt"></input>
+        <p class="log-nerimity">Nerimity Channel</p>
+        <input id="log-nerimity"></input>
+        <button class="log-save" id="save">Save</button>
       </div>
+
+      <div class="blacklist" id="blacklist-div">
+        <h1>Blacklist</h1>
+        <input id="blacklist-input" class="blacklist-input"></input>
+        <button class="blacklist-save" id="save">Add</button>
+        <h2>Blacklisted Words</h2>
+        <div class="blacklisted-words" id="blacklisted-words">
+        </div>
+      </div>
+
+      <div class="allowed-ids-div" id="allowed-ids-div">
+        <h1>Allowed IDs</h1>
+        <input id="allowed-ids-input" class="allowed-ids-input"></input>
+        <button class="allowed-ids-save" id="save">Add</button>
+        <div class="allowed-ids" id="allowed-ids">
+        </div>
+      </div>
+
+
     </div>
 
     <div class="filter" id="filter" style="display: none;"></div>

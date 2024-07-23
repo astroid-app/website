@@ -366,44 +366,203 @@ input:focus {
   color: #fff;
   font-family: "Inter", sans-serif;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
   margin: 0 auto;
-  width: 90vw;
   background-color: #1d202b;
   padding: 2px;
   border-radius: 30px;
-  width: 300px;
-  margin-left: 20px;
+  width: 400px;
+  float: left;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin-top: 50px;
   margin-bottom: 100px;
+  height: 450px;
 }
 
-.log-channels h1 {
-  float: left;
-  margin-right: 100px;
-  margin-left: 10px;
-}
 
 .log-channels input {
-  width: 90%;
+  width: 70%;
   background-color: #323749;
   border-radius: 10px;
+  
 }
 
 .log-channels button {
-  position: relative;
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
   margin-top: 10px;
-  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 20%;
+  margin: 20px;
+  margin-top: 0;
 }
 
 .log-channels p {
   margin: 0;
-  float: left;
-  margin-left: 10px;
 
+}
+
+.blacklist {
+  width: 500px;
+  background-color: #1d202b;
+  float: left;
+  margin-top: 50px;
+  margin-left: 20px;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.blacklist h1 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.blacklist-input {
+  width: 40%;
+  background-color: #323749;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.blacklisted-words {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.word {
+  width: max-content;
+  background-color: #323749;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 13px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 0;
+}
+
+.word:hover {
+  cursor: pointer;
+  background-color: #323749;
+  filter: hue-rotate(90deg);
+}
+
+
+.blacklist button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 15%;
+  margin: 20px;
+  margin-top: 0;
+}
+
+
+
+
+
+
+
+
+.allowed-ids-div {
+  width: 500px;
+  background-color: #1d202b;
+  float: left;
+  margin-top: 50px;
+  margin-left: 20px;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.allowed-ids-div h1 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.allowed-ids-input {
+  width: 40%;
+  background-color: #323749;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.allowed-ids {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.allowed-id {
+  width: max-content;
+  background-color: #323749;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 13px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 0;
+}
+
+.allowed-id:hover {
+  cursor: pointer;
+  background-color: #323749;
+  filter: hue-rotate(90deg);
+}
+
+
+.allowed-ids-div button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 15%;
+  margin: 20px;
+  margin-top: 0;
 }
 
 .filter {

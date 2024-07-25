@@ -9,16 +9,51 @@ window.onload = async function () {
 
     response_json = await response.json();
     if (response.ok) {
-      document.getElementById("api-status").innerHTML = "Online";
-      document.querySelector("#item-icon-api").src = "./assets/status-up.svg";
-      document.querySelector("#item-icon-api").style = filter_green;
 
+      var api_status = response_json.api.status;
+      var database_status = response_json.database.status;
       var discord_status = response_json.discord.status;
       var guilded_status = response_json.guilded.status;
       var discord_beta_status = response_json["discord-beta"].status;
       var guilded_beta_status = response_json["guilded-beta"].status;
       var revolt_beta_status = response_json["revolt-beta"].status;
       var nerimity_beta_status = response_json["nerimity-beta"].status;
+
+      if (api_status == "up") {
+        document.getElementById("api-status").innerHTML = "Online";
+        document.querySelector("#item-icon-api").src = "./assets/status-up.svg";
+        document.querySelector("#item-icon-api").style = filter_green;
+      } else if (api_status == "degr") {
+        document.getElementById("api-status").innerHTML = "Degraded";
+        document.querySelector("#item-icon-api").src = "./assets/status-alert.svg";
+        document.querySelector("#item-icon-api").style = filter_yellow;
+      } else if (api_status == "mtn") {
+        document.getElementById("api-status").innerHTML = "Maintenance";
+        document.querySelector("#item-icon-api").src = "./assets/status-update-maintenance.svg";
+        document.querySelector("#item-icon-api").style = filter_yellow;
+      } else {
+        document.getElementById("api-status").innerHTML = "Offline";
+        document.querySelector("#item-icon-api").src = "./assets/status-failed.svg";
+        document.querySelector("#item-icon-api").style = filter_red;
+      }
+
+      if (database_status == "up") {
+        document.getElementById("database-status").innerHTML = "Online";
+        document.querySelector("#item-icon-database").src = "./assets/status-up.svg";
+        document.querySelector("#item-icon-database").style = filter_green;
+      } else if (database_status == "degr") {
+        document.getElementById("database-status").innerHTML = "Degraded";
+        document.querySelector("#item-icon-database").src = "./assets/status-alert.svg";
+        document.querySelector("#item-icon-database").style = filter_yellow;
+      } else if (database_status == "mtn") {
+        document.getElementById("database-status").innerHTML = "Maintenance";
+        document.querySelector("#item-icon-database").src = "./assets/status-update-maintenance.svg";
+        document.querySelector("#item-icon-database").style = filter_yellow;
+      } else {
+        document.getElementById("database-status").innerHTML = "Offline";
+        document.querySelector("#item-icon-database").src = "./assets/status-failed.svg";
+        document.querySelector("#item-icon-database").style = filter_red;
+      }
 
       if (discord_status == "up") {
         document.getElementById("discord-status").innerHTML = "Online";
@@ -227,6 +262,48 @@ window.onload = async function () {
       document.getElementById("op-icon").style = filter_green;
       document.getElementById("op-icon").src = "./assets/status-up.svg";
     }
+    
+    var api_incident = response_json.api.incident;
+    var database_incident = response_json.database.incident;
+    var discord_incident = response_json.discord.incident;
+    var guilded_incident = response_json.guilded.incident;
+    var discord_beta_incident = response_json["discord-beta"].incident;
+    var guilded_beta_incident = response_json["guilded-beta"].incident;
+    var revolt_beta_incident = response_json["revolt-beta"].incident;
+    var nerimity_beta_incident = response_json["nerimity-beta"].incident;
+
+    if (api_incident != null) {
+      document.getElementById("status-bar-api").innerHTML = api_incident;
+    }
+
+    if (database_incident != null) {
+      document.getElementById("status-bar-database").innerHTML = database_incident;
+    }
+
+    if (discord_incident != null) {
+      document.getElementById("status-bar-discord").innerHTML = discord_incident;
+    }
+
+    if (guilded_incident != null) {
+      document.getElementById("status-bar-guilded").innerHTML = guilded_incident;
+    } 
+
+    if (discord_beta_incident != null) {
+      document.getElementById("status-bar-discord-beta").innerHTML = discord_beta_incident;
+    }
+
+    if (guilded_beta_incident != null) {
+      document.getElementById("status-bar-guilded-beta").innerHTML = guilded_beta_incident;
+    }
+
+    if (revolt_beta_incident != null) {
+      document.getElementById("status-bar-revolt-beta").innerHTML = revolt_beta_incident;
+    }
+
+    if (nerimity_beta_incident != null) {
+      document.getElementById("status-bar-nerimity-beta").innerHTML = nerimity_beta_incident;
+    }
+
 
   });
   interval_secs = 30;
@@ -249,12 +326,50 @@ async function checkStatus() {
       document.querySelector("#item-icon-api").src = "./assets/status-up.svg";
       document.querySelector("#item-icon-api").style = filter_green;
 
+      var api_status = response_json.api.status;
+      var database_status = response_json.database.status;
       var discord_status = response_json.discord.status;
       var guilded_status = response_json.guilded.status;
       var discord_beta_status = response_json["discord-beta"].status;
       var guilded_beta_status = response_json["guilded-beta"].status;
       var revolt_beta_status = response_json["revolt-beta"].status;
       var nerimity_beta_status = response_json["nerimity-beta"].status;
+
+      if (api_status == "up") {
+        document.getElementById("api-status").innerHTML = "Online";
+        document.querySelector("#item-icon-api").src = "./assets/status-up.svg";
+        document.querySelector("#item-icon-api").style = filter_green;
+      } else if (api_status == "degr") {
+        document.getElementById("api-status").innerHTML = "Degraded";
+        document.querySelector("#item-icon-api").src = "./assets/status-alert.svg";
+        document.querySelector("#item-icon-api").style = filter_yellow;
+      } else if (api_status == "mtn") {
+        document.getElementById("api-status").innerHTML = "Maintenance";
+        document.querySelector("#item-icon-api").src = "./assets/status-update-maintenance.svg";
+        document.querySelector("#item-icon-api").style = filter_yellow;
+      } else {
+        document.getElementById("api-status").innerHTML = "Offline";
+        document.querySelector("#item-icon-api").src = "./assets/status-failed.svg";
+        document.querySelector("#item-icon-api").style = filter_red;
+      }
+
+      if (database_status == "up") {
+        document.getElementById("database-status").innerHTML = "Online";
+        document.querySelector("#item-icon-database").src = "./assets/status-up.svg";
+        document.querySelector("#item-icon-database").style = filter_green;
+      } else if (database_status == "degr") {
+        document.getElementById("database-status").innerHTML = "Degraded";
+        document.querySelector("#item-icon-database").src = "./assets/status-alert.svg";
+        document.querySelector("#item-icon-database").style = filter_yellow;
+      } else if (database_status == "mtn") {
+        document.getElementById("database-status").innerHTML = "Maintenance";
+        document.querySelector("#item-icon-database").src = "./assets/status-update-maintenance.svg";
+        document.querySelector("#item-icon-database").style = filter_yellow;
+      } else {
+        document.getElementById("database-status").innerHTML = "Offline";
+        document.querySelector("#item-icon-database").src = "./assets/status-failed.svg";
+        document.querySelector("#item-icon-database").style = filter_red;
+      }
 
       if (discord_status == "up") {
         document.getElementById("discord-status").innerHTML = "Online";
@@ -430,6 +545,8 @@ async function checkStatus() {
     }
 
     var status_array = [];
+    status_array.push(response_json.api.status);
+    status_array.push(response_json.database.status);
     status_array.push(response_json.discord.status);
     status_array.push(response_json.guilded.status);
     status_array.push(response_json["discord-beta"].status);
@@ -464,13 +581,28 @@ async function checkStatus() {
       document.getElementById("op-icon").src = "./assets/status-up.svg";
     }
 
-    
+
+    var api_incident = response_json.api.incident;
+    var database_incident = response_json.database.incident;
     var discord_incident = response_json.discord.incident;
     var guilded_incident = response_json.guilded.incident;
     var discord_beta_incident = response_json["discord-beta"].incident;
     var guilded_beta_incident = response_json["guilded-beta"].incident;
     var revolt_beta_incident = response_json["revolt-beta"].incident;
     var nerimity_beta_incident = response_json["nerimity-beta"].incident;
+
+
+    if (api_incident != null) {
+      document.getElementById("status-bar-api").innerHTML = api_incident;
+    } else {
+        document.getElementById("status-bar-api").innerHTML = null;
+    }
+
+    if (database_incident != null) {
+      document.getElementById("status-bar-database").innerHTML = database_incident;
+    } else {
+        document.getElementById("status-bar-database").innerHTML = null;
+    }
 
     if (discord_incident != null) {
       document.getElementById("status-bar-discord").innerHTML = discord_incident;
@@ -507,7 +639,6 @@ async function checkStatus() {
       document.getElementById("status-bar-nerimity-beta").innerHTML = nerimity_beta_incident;
     } else {
         document.getElementById("status-bar-nerimity-beta").innerHTML = null;
-
     }
   });
 }

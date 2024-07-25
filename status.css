@@ -154,6 +154,14 @@ body {
   background-color: #1d202b;
   border-radius: 20px;
   margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  font-size: auto;
 }
 
 

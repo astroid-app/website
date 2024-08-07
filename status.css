@@ -164,6 +164,39 @@ body {
   font-size: auto;
 }
 
+.serverstatus {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.serveroverview {
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.serveroverview h2 {
+  min-width: 135px;
+}
+
+.serverstatus .item-info h2 {
+  width: max-content;
+  text-align: left;
+  width: 420px;
+}
+
+.serverstatus .item-info p {
+  display: inline;
+}
+
+hr {
+  width: min(90%, 1000px);
+  filter: opacity(0.5);
+  border-radius: 10px;
+}
 
 @media screen and (max-width: 1700px) {
   .status-item {
@@ -185,6 +218,7 @@ body {
   .status-item p {
     font-size: 0.9rem;
   }
+
 
   .status-bar {
     width: 100%;

@@ -1,6 +1,6 @@
 window.onload = async function () {
   try {
-    await fetch("http://kvm.deutscher775.de", {
+    await fetch("https://kvm.deutscher775.de", {
       signal: AbortSignal.timeout(5000),
     }).then(async (response) => {
       if (response) {
@@ -23,7 +23,7 @@ window.onload = async function () {
   }
 
   try {
-    await fetch("http://kvm2.deutscher775.de", { signal: AbortSignal.timeout(5000) }).then(async (response) => {
+    await fetch("https://kvm2.deutscher775.de", { signal: AbortSignal.timeout(5000) }).then(async (response) => {
       if (response) {
         document.getElementById("server2-status").innerHTML = "Online";
         document.querySelector("#item-icon-server2").src = "./assets/status-up.svg";
@@ -449,7 +449,7 @@ async function checkStatus() {
   console.log("Checking status...");
   
   try {
-    await fetch("http://kvm.deutscher775.de", {
+    await fetch("https://kvm.deutscher775.de", {
       signal: AbortSignal.timeout(5000),
     }).then(async (response) => {
       if (response) {
@@ -472,7 +472,7 @@ async function checkStatus() {
   }
 
   try {
-    await fetch("http://kvm2.deutscher775.de", { signal: AbortSignal.timeout(5000) }).then(async (response) => {
+    await fetch("https://kvm2.deutscher775.de", { signal: AbortSignal.timeout(5000) }).then(async (response) => {
       if (response) {
         document.getElementById("server2-status").innerHTML = "Online";
         document.querySelector("#item-icon-server2").src = "./assets/status-up.svg";

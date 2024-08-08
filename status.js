@@ -1,6 +1,6 @@
 window.onload = async function () {
   try {
-    await fetch("https://kvm.deutscher775.de", {
+    await fetch("http://kvm.deutscher775.de", {
       signal: AbortSignal.timeout(5000),
     }).then(async (response) => {
       if (response) {
@@ -10,6 +10,7 @@ window.onload = async function () {
         document.querySelector("#item-icon-server1").style =
           "filter: invert(57%) sepia(43%) saturate(1352%) hue-rotate(80deg) brightness(119%) contrast(119%);";
       } else {
+        console.error("API is offline");
         document.getElementById("api-status").innerHTML = "Offline";
         document.querySelector("#item-icon-server1").src =
           "./assets/status-failed.svg";
@@ -22,7 +23,7 @@ window.onload = async function () {
   }
 
   try {
-    await fetch("https://kvm2.deutscher775.de", { signal: AbortSignal.timeout(5000) }).then(async (response) => {
+    await fetch("http://kvm2.deutscher775.de", { signal: AbortSignal.timeout(5000) }).then(async (response) => {
       if (response) {
         document.getElementById("server2-status").innerHTML = "Online";
         document.querySelector("#item-icon-server2").src = "./assets/status-up.svg";
@@ -42,7 +43,7 @@ window.onload = async function () {
 
 
   try {
-    await fetch("https://api.astroid.cc/monitor", {
+    await fetch("https://status.astroid.cc/monitor", {
       signal: AbortSignal.timeout(5000),
     }).then(async (response) => {
       const filter_green =
@@ -448,7 +449,7 @@ async function checkStatus() {
   console.log("Checking status...");
   
   try {
-    await fetch("https://kvm.deutscher775.de", {
+    await fetch("http://kvm.deutscher775.de", {
       signal: AbortSignal.timeout(5000),
     }).then(async (response) => {
       if (response) {
@@ -458,6 +459,7 @@ async function checkStatus() {
         document.querySelector("#item-icon-server1").style =
           "filter: invert(57%) sepia(43%) saturate(1352%) hue-rotate(80deg) brightness(119%) contrast(119%);";
       } else {
+        console.error("API is offline");
         document.getElementById("api-status").innerHTML = "Offline";
         document.querySelector("#item-icon-server1").src =
           "./assets/status-failed.svg";
@@ -470,7 +472,7 @@ async function checkStatus() {
   }
 
   try {
-    await fetch("https://kvm2.deutscher775.de", { signal: AbortSignal.timeout(5000) }).then(async (response) => {
+    await fetch("http://kvm2.deutscher775.de", { signal: AbortSignal.timeout(5000) }).then(async (response) => {
       if (response) {
         document.getElementById("server2-status").innerHTML = "Online";
         document.querySelector("#item-icon-server2").src = "./assets/status-up.svg";
@@ -490,7 +492,7 @@ async function checkStatus() {
 
 
   try {
-    await fetch("https://api.astroid.cc/monitor", {
+    await fetch("https://status.astroid.cc/monitor", {
       signal: AbortSignal.timeout(5000),
     }).then(async (response) => {
       const filter_green =

@@ -7,7 +7,7 @@ async function login() {
   document.getElementById("btn-load").style.display = "flex";
   const endpoint_id = document.getElementById("endpoint-id").value;
   const token = document.getElementById("token").value;
-  const apiUrl = `https://astroid.deutscher775.de/${endpoint_id}?token=${token}`;
+  const apiUrl = `https://api.astroid.cc/${endpoint_id}?token=${token}`;
 
   await fetch(apiUrl).then(async (response) => {
     if (response.status == 200) {
@@ -108,7 +108,7 @@ window.onload = async function () {
     location.reload();
   };
 
-  const apiUrl = `https://astroid.deutscher775.de/${endpoint_id}?token=${token}`;
+  const apiUrl = `https://api.astroid.cc/${endpoint_id}?token=${token}`;
 
   await fetch(apiUrl)
     .then((response) => response.json())
@@ -203,7 +203,7 @@ window.onload = async function () {
         channel_id_p.innerText = channel;
         var channel_name_p = document.createElement("p");
         channel_name_p.className = "channel-name";
-        channel_name_p.innerText = channel;
+        channel_name_p.innerText = await getChannelNameById(channel, "nerimity");
         channel_div.appendChild(channel_name_p);
         channel_div.appendChild(channel_id_p);
         var edit_channel_btn = document.createElement("button");
@@ -418,9 +418,6 @@ async function getChannelNameById(id, platform) {
   if (platform == "revolt") {
     return id;
   }
-  if (platform == "nerimity") {
-    return id;
-  }
   return fetch(
     `https://api.astroid.cc/channel/name/${platform}?id=${id}&token=${token}`
   )
@@ -435,7 +432,7 @@ function exitLoading() {
 }
 
 async function deleteChannel() {
-  var deleteUrl = `https://astroid.deutscher775.de/delete/data/${endpoint_id}?token=${token}`;
+  var deleteUrl = `https://api.astroid.cc/delete/data/${endpoint_id}?token=${token}`;
   var discord_channel = document.querySelector(
     ".edit-popup #discord_channel_id"
   ).value;
@@ -522,7 +519,7 @@ async function deleteChannel() {
 }
 
 async function save(btn) {
-  var updateUrl = `https://astroid.deutscher775.de/update/${endpoint_id}?token=${token}`;
+  var updateUrl = `https://api.astroid.cc/update/${endpoint_id}?token=${token}`;
   var platform = document.getElementById("popup-platform").innerText;
   var save = btn.parentElement.id.split("-")[0];
   if (save == "edit") {
@@ -798,7 +795,7 @@ async function save(btn) {
 }
 
 async function deleteBlacklistedWord(word) {
-  var updateUrl = `https://astroid.deutscher775.de/delete/data/${endpoint_id}?token=${token}`;
+  var updateUrl = `https://api.astroid.cc/delete/data/${endpoint_id}?token=${token}`;
   document.querySelector(".blacklist #blacklisted-words").innerHTML =
     "Updating...";
   updateUrl += `&blacklist=${word}`;
@@ -807,7 +804,7 @@ async function deleteBlacklistedWord(word) {
 }
 
 async function deleteAllowedId(id) {
-  var updateUrl = `https://astroid.deutscher775.de/delete/data/${endpoint_id}?token=${token}`;
+  var updateUrl = `https://api.astroid.cc/delete/data/${endpoint_id}?token=${token}`;
   document.querySelector(".allowed-ids-div #allowed-ids").innerHTML =
     "Updating...";
   updateUrl += `&allowed_ids=${id}`;
@@ -821,7 +818,7 @@ async function reloadSpecific(specific) {
     document.querySelector(".log-channels #log-guilded").value = "";
     document.querySelector(".log-channels #log-revolt").value = "";
     document.querySelector(".log-channels #log-nerimity").value = "";
-    await fetch(`https://astroid.deutscher775.de/${endpoint_id}?token=${token}`)
+    await fetch(`https://api.astroid.cc/${endpoint_id}?token=${token}`)
       .then((response) => response.json())
       .then((data) => {
         var logs = data.config.logs;
@@ -836,7 +833,7 @@ async function reloadSpecific(specific) {
       });
   } else if (specific == "blacklist") {
     document.querySelector(".blacklist #blacklisted-words").innerHTML = "";
-    await fetch(`https://astroid.deutscher775.de/${endpoint_id}?token=${token}`)
+    await fetch(`https://api.astroid.cc/${endpoint_id}?token=${token}`)
       .then((response) => response.json())
       .then((data) => {
         var blacklist = data.config.blacklist;
@@ -866,7 +863,7 @@ async function reloadSpecific(specific) {
       });
   } else if (specific == "allowed-ids") {
     document.querySelector(".allowed-ids-div #allowed-ids").innerHTML = "";
-    await fetch(`https://astroid.deutscher775.de/${endpoint_id}?token=${token}`)
+    await fetch(`https://api.astroid.cc/${endpoint_id}?token=${token}`)
       .then((response) => response.json())
       .then((data) => {
         var allowed_ids = data.config["allowed-ids"];

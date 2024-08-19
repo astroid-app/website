@@ -53,7 +53,7 @@ async function getIncidents() {
             incidentStart.id = `incident-${incident.id.replace("incidents:", "")}-start`;
             incidentStart.innerHTML = `<b>Started at:</b`;
             var incidentStartP = document.createElement("p");
-            incidentStartP.innerHTML = incident.startedAt.replace(" ", "<br>");
+            incidentStartP.innerHTML = incident.startedAt.replace(" ", "<br>") + " UTC";
             incidentStartP.className = "incident-start-time";
             incidentStartP.id = `incident-${incident.id.replace("incidents:", "")}-start`;
             incidentStart.appendChild(incidentStartP);
@@ -63,7 +63,7 @@ async function getIncidents() {
             incidentEnd.id = `incident-${incident.id.replace("incidents:", "")}-end`;
             incidentEnd.innerHTML = `<b>Ended at:</b`;
             var incidentEndP = document.createElement("p");
-            incidentEndP.innerHTML = incident.endedAt?.replace(" ", "<br>");
+            incidentEndP.innerHTML = incident.endedAt?.replace(" ", "<br>") + " UTC";
             incidentEndP.className = "incident-end-time";
             incidentEndP.id = `incident-${incident.id.replace("incidents:", "")}-end`;
             incidentEnd.appendChild(incidentEndP);

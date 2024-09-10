@@ -17,6 +17,7 @@ async function getIncidents() {
         localStorage.setItem("incidents", JSON.stringify(incidents));
 
         var incidents = JSON.parse(localStorage.getItem("incidents"));
+        var incidents = incidents.reverse();
         var incidentsContainer = document.getElementById("incidents-div");
         incidents.forEach(incident => {
             var incidentDiv = document.createElement("div");

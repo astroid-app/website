@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #151720;
   color: white;
@@ -115,6 +119,25 @@ p {
 }
 .button-group button:nth-child(3) {
   position: relative;
+}
+
+#supportus {
+  background-color: #13C3FF;
+}
+
+#supportus:hover {
+  animation: color-change-left-to-right 1s infinite;
+}
+
+@keyframes color-change-left-to-right {
+  0% {
+    background-color: #13C3FF;
+    background-position: 0% 50%;
+  }
+  25% {
+    background-color: #FF5E5B;
+    background-position: 50% 50%;
+  }
 }
 
 section {
@@ -448,4 +471,39 @@ hr {
   to {
     background-color: rgba(0, 0, 0, 0.5);
   }
+}
+
+.footer {
+  background-color: #1d202b;
+  color: #a1a1aa;
+  padding: 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.footer-content {
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.footer-content-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  float: left;
+}
+
+.footer-content-left-text p {
+  margin: 0;
+}
+
+.footer-content-left-text img {
+  margin-top: 5px;
+  width: 260px;
+  margin-bottom: 40px;
 }

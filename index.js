@@ -53,4 +53,7 @@ document.querySelectorAll("#can-resize").forEach(img => {
     document.querySelector("#discord").onclick = function() {
         window.open("https://api.astroid.cc/discord");
     }
+    document.querySelector("#supportus").onclick = function() {
+        window.open("https://ko-fi.com/astroidapp");
+    }
 }

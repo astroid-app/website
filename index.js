@@ -6,7 +6,59 @@ window.onresize = function() {
     }
 }
 
-window.onload = function() {   
+
+async function getStats() {
+    const res = await fetch("https://api.astroid.cc/statistics");
+    const data = await res.json();
+
+    const animationDuration = 1000;
+    const frameDuration = 1000 / 60;
+    const totalFrames = Math.round( animationDuration / frameDuration );
+    const easeOutQuad = t => t * ( 2 - t );
+
+    const animateCountUp = el => {
+        let frame = 0;
+        const countTo = parseInt( el.innerHTML, 10 );
+        // Start the animation running 60 times per second
+        const counter = setInterval( () => {
+            frame++;
+            // Calculate our progress as a value between 0 and 1
+            // Pass that value to our easing function to get our
+            // progress on a curve
+            const progress = easeOutQuad( frame / totalFrames );
+            // Use the progress value to calculate the current count
+            const currentCount = Math.round( countTo * progress );
+
+            // If the current count has changed, update the element
+            if ( parseInt( el.innerHTML, 10 ) !== currentCount ) {
+                el.innerHTML = currentCount;
+            }
+
+            // If we’ve reached our last frame, stop the animation
+            if ( frame === totalFrames ) {
+                clearInterval( counter );
+                if (el.id == "total-messages-num") {
+                    el.innerText = data.messages.total_rounded + "+";
+                }
+
+            }
+        }, frameDuration );
+    };
+    document.querySelector("#total-servers-num").innerText = data.endpoints;
+    document.querySelector("#total-messages-num").innerText = data.messages.total_rounded;
+    document.querySelector("#messages-month-num").innerText = data.messages.month;
+
+    animateCountUp(document.querySelector('#total-servers-num'));
+    animateCountUp(document.querySelector('#total-messages-num'));
+    animateCountUp(document.querySelector('#messages-month-num'));
+
+    document.querySelector("#total-servers-num").innerText = document.querySelector("#total-messages-num").innerText + "+";
+
+
+
+}
+
+window.onload = async function() {   
     if (window.innerWidth <= 550) {
         document.querySelector(".logo img").src = "../assets/Astroid Logo no bg.png";
     } else {
@@ -16,6 +68,8 @@ window.onload = function() {
     document.querySelector(".logo img").onclick = function() { 
         window.location.href = "/";
     }
+    
+    await getStats();
 
 document.querySelectorAll("#can-resize").forEach(img => {
     img.onclick = function() {

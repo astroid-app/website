@@ -387,7 +387,7 @@ window.onload = async function () {
 
     document.getElementById("database-status").innerHTML = "Fallback call";
 
-    await fetch("https://cs.serve.astroid.cc:3100", {
+    await fetch("http://cs.serve.astroid.cc:3100", {
       signal: AbortSignal.timeout(10000),
     })
       .then(async (response) => {

@@ -41,6 +41,25 @@ window.onload = async function () {
     document.querySelector("#item-icon-server2").style = "filter: invert(20%) sepia(100%) saturate(7499%) hue-rotate(354deg) brightness(102%) contrast(102%);";
   }
 
+  try {
+    await fetch("https://proxy.srv1.catpawz.net", { signal: AbortSignal.timeout(5000), mode: "no-cors"}).then(async (response) => {
+      if (response) {
+        document.getElementById("server3-status").innerHTML = "Online";
+        document.querySelector("#item-icon-server3").src = "./assets/status-up.svg";
+        document.querySelector("#item-icon-server3").style = "filter: invert(57%) sepia(43%) saturate(1352%) hue-rotate(80deg) brightness(119%) contrast(119%);";
+      } else {
+        document.getElementById("api-status").innerHTML = "Offline";
+        document.querySelector("#item-icon-server3").src = "./assets/status-failed.svg";
+        document.querySelector("#item-icon-server3").style = "filter: invert(20%) sepia(100%) saturate(7499%) hue-rotate(354deg) brightness(102%) contrast(102%);";
+      }
+    });
+  }
+  catch (error) {
+    document.getElementById("server2-status").innerHTML = "Offline";
+    document.querySelector("#item-icon-server2").src = "./assets/status-failed.svg";
+    document.querySelector("#item-icon-server2").style = "filter: invert(20%) sepia(100%) saturate(7499%) hue-rotate(354deg) brightness(102%) contrast(102%);";
+  }
+
 
   try {
     await fetch("https://status.astroid.cc/monitor", {
